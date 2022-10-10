@@ -21,7 +21,7 @@ $ git clone git@github.com:yuta-sawamura/learning_sql_injection.git
 
 ### 2. コンテナの起動
 
-learning_sql_injection 直下 2. コンテナの起動
+learning_sql_injection 直下
 
 ```bash
 $ docker compose up
