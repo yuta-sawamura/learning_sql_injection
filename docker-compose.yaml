@@ -2,6 +2,7 @@ version: '3.9'
 services:
     web:
         build: ./php
+        container_name: web-container
         volumes:
             - "./src:/var/www/html"
         ports:
@@ -10,6 +11,7 @@ services:
             - db
     db:
         image: mysql:8.0.30
+        container_name: db-container
         volumes:
             - ./mysql/data:/var/lib/mysql
             - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
@@ -18,3 +20,10 @@ services:
             MYSQL_ROOT_PASSWORD: secret
         ports:
             - 3306:3306
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:latest
+      container_name: phpmyadmin-container
+      ports:
+        - 8888:80
+      depends_on:
+        - db
